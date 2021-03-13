@@ -1,0 +1,30 @@
+{
+  "name": "bondmaintainer-backend",
+  "version": "1.0.0",
+  "description": "To maintain strong bonds ",
+  "main": "./src/app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bondmaintainer/bondmaintainer-backend.git"
+  },
+  "author": "kdsinghcoder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bondmaintainer/bondmaintainer-backend/issues"
+  },
+  "homepage": "https://github.com/bondmaintainer/bondmaintainer-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "expresss": "0.0.0",
+    "mongooses": "^1.0.0",
+    "nodemon": "^2.0.7"
+  }
+}
