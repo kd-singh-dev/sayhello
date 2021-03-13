@@ -1,7 +1,7 @@
 {
-  "name": "bondmaintainer-backend",
+  "name": "sayhello",
   "version": "1.0.0",
-  "description": "To maintain strong bonds ",
+  "description": "Speach to sign language and store speach ",
   "main": "./src/app.js",
   "directories": {
     "test": "test"
@@ -17,9 +17,9 @@
   "author": "kdsinghcoder",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bondmaintainer/bondmaintainer-backend/issues"
+    "url": "https://github.com/kdsinghcoder/sayhello/issues"
   },
-  "homepage": "https://github.com/bondmaintainer/bondmaintainer-backend#readme",
+  "homepage": "https://github.com/kdsinghcoder/sayhello/#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "ejs": "^3.1.6",
