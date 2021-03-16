@@ -1,4 +1,114 @@
-<%- include('../partials/header'); -%>
-<h1>Register page</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<%- include('../partials/footer'); -%>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="/asserts/css/dashboard_style.css" />
+    <title>Register</title>
+</head>
+
+<style>
+    #loading {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #fff url('https://media.giphy.com/media/kUTME7ABmhYg5J3psM/source.gif') no-repeat center center;
+        z-index: 99999;
+    }
+
+    .container-fluid {
+        width: 90%;
+    }
+</style>
+
+<body onload="mylodFunction()">
+
+    <div id="loading"></div>
+
+
+    <nav class="navbar navbar-light bg-light vertical-center">
+        <div class="container-fluid">
+            <a class="navbar-brand vertical-center" href="#">
+                <img src="https://i.imgur.com/IxnB3RV.png" height="50" width="150" alt="" loading="lazy" />
+            </a>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mr-5">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="https://i.imgur.com/2LofdtV.jpg" width="100%" height="100%" />
+            </div>
+            <div class="col-md-6" style="margin: auto auto">
+                <h4>Let's Sign You Up</h4>
+                <form action="/register" method="POST">
+                    <div class="form-group row">
+                        <label for="inputUserId" class="col-sm-3 col-form-label">Username :</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputUserId" placeholder="Karandeep_Singh"
+                                name="username" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-3 col-form-label">Email ID :</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="email@example.com"
+                                name="email" />
+                        </div>
+                        <small id="emailHelp" class="form-text text-muted ml-3">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Password :</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="*******"
+                                name="password" aria-describedby="passwordHelpInline" />
+                        </div>
+                        <small id="passwordHelpInline" class="text-muted ml-3">
+                            Must be 8-20 characters long.
+                        </small>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Repeat your password :</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="*******"
+                                name="password" aria-describedby="passwordHelpInline" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <button type="submit" class="btn more_bt" style="background-color: #212121; color: white;">
+                                Register!
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <p>
+                            Already registered ?<span><a href="/user/login" style="color: #a258ed"> Login</a></span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

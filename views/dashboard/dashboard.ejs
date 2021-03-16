@@ -1,1 +1,225 @@
-<h1>Dashboard page</h1>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Dashboard</title>
+    <link rel="icon" href="https://i.imgur.com/IxnB3RV.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+</head>
+<style>
+    #loading {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #fff url('https://media.giphy.com/media/kUTME7ABmhYg5J3psM/source.gif') no-repeat center center;
+        z-index: 99999;
+    }
+
+    .container-fluid {
+        width: 90%;
+    }
+
+    .words {
+        /* max-width: 500px; */
+        /* margin: 50px auto; */
+        background: white;
+        border-radius: 5px;
+        box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+        padding: 1rem 2rem 1rem 5rem;
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+        /* background-size: 100% 3rem; */
+        position: relative;
+        line-height: 3rem;
+    }
+
+    .words:before {
+        content: '';
+        position: absolute;
+        width: 4px;
+        top: 0;
+        left: 30px;
+        bottom: 0;
+        border: 1px solid;
+        border-color: transparent #efe4e4;
+    }
+
+    input {
+        background: white;
+        border-radius: 5px;
+        box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+        padding: 1rem 2rem 1rem 5rem;
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 4px;
+        background-size: 100% 3rem;
+        position: relative;
+        line-height: 3rem;
+        border: none;
+    }
+
+    input:before {
+        position: absolute;
+        width: 4px;
+        top: 0;
+        left: 30px;
+        bottom: 0;
+        border: 1px solid;
+        border-color: transparent #efe4e4;
+    }
+</style>
+
+<body onload="mylodFunction()">
+
+    <div id="loading"></div>
+
+
+    <nav class="navbar navbar-expand-lg   navbar-light bg-light">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <a class="navbar-brand vertical-center" href="#">
+                <img src="https://i.imgur.com/IxnB3RV.png" height="50" width="100" alt="" loading="lazy" />
+            </a>
+
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarRightAlignExample" aria-controls="navbarRightAlignExample" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarRightAlignExample">
+                <!-- Left links -->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Record</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard/speeches">Your Speeches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard/logout">LogOut</a>
+                    </li>
+                </ul>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="mt-4">
+                    <h3>Welcom back Karandeep Singh</h3>
+                </div>
+                <form action="">
+                    <div class="form-group">
+                        <input type="text" placeholder="Add speach title" name="title">
+                    </div>
+
+                </form>
+
+                <div class="words" contenteditable>
+
+
+                </div>
+                <div>
+
+                </div>
+                <button type="button" class="btn btn-primary" onclick="record()" id="recordBtn"
+                    style="margin-top:2rem;">Start
+                    Recording Your Speach</button>
+
+                <button type="submit" class="btn btn-primary" id="saveBtn" style="display: none;margin-top:2rem;">
+                    Save Your speach once recorded.
+                </button>
+
+            </div>
+
+            <div class="col-lg-6">
+                <div>
+                    <img src="https://i.imgur.com/vZboLOl.jpg" width="100%" height="100%">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        var preloader = document.getElementById("loading");
+        function mylodFunction() {
+            preloader.style.display = 'none';
+        };
+        function record() {
+            document.getElementById("saveBtn").style.display = "block";
+            document.getElementById("recordBtn").style.display = "none";
+            window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+            const recognition = new SpeechRecognition();
+            recognition.interimResults = true;
+            recognition.lang = 'en-US';
+
+            let p = document.createElement('p');
+            const words = document.querySelector('.words');
+            words.appendChild(p);
+
+            recognition.addEventListener('result', e => {
+                const transcript = Array.from(e.results)
+                    .map(result => result[0])
+                    .map(result => result.transcript)
+                    .join('');
+
+                const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
+                p.textContent = poopScript;
+
+                if (e.results[0].isFinal) {
+                    p = document.createElement('p');
+                    words.appendChild(p);
+                }
+            });
+
+            recognition.addEventListener('end', recognition.start);
+
+            recognition.start();
+        }
+
+    </script>
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

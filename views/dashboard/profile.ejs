@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Dashboard</title>
+    <link rel="icon" href="https://i.imgur.com/IxnB3RV.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+
+</head>
+<style>
+    .container-fluid {
+        width: 90%;
+    }
+
+    .card {
+        border-radius: 15px;
+    }
+
+    .card img {
+        border-radius: 100%;
+    }
+
+    .form-control {
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg   navbar-light bg-light">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <a class="navbar-brand vertical-center" href="#">
+                <img src="https://i.imgur.com/IxnB3RV.png" height="50" width="100" alt="" loading="lazy" />
+            </a>
+
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarRightAlignExample" aria-controls="navbarRightAlignExample" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarRightAlignExample">
+                <!-- Left links -->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard">Record</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard/speeches">Your Speeches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/logout">LogOut</a>
+                    </li>
+                </ul>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card user-card mt-4" style="text-align: center">
+                    <div class="card-header">
+                        <h5>Profile</h5>
+                    </div>
+                    <div class="card-block">
+                        <div class="user-image">
+                            <img src="https://avatars.githubusercontent.com/u/50829119?s=400&u=da093d532ce980d145ccf497c850cd0a5d7f95c5&v=4"
+                                class="mt-4" alt="User-Profile-Image" width="200" height="200">
+                        </div>
+                        <h6 class="f-w-600 m-t-25 m-b-10 mt-2">Karandeep Singh</h6>
+                        <p class="text-muted">User Name: KD_singh
+                            <br>
+                            Your Email: karandeep@vitstudent.ac.in
+                        </p>
+                        <hr>
+
+                        <p class="m-t-15 text-muted" style="margin-left:1rem; margin-right: 1rem">Thanks for being an
+                            active user of say
+                            hello. In case on any
+                            concers feel free to ask us at sayhello.contact@hello.com.</p>
+                        <hr>
+                        <div class="row justify-content-center user-social-link">
+                            <div class="col-auto"><a href="#!"><i class="fa fa-facebook text-facebook"></i></a></div>
+                            <div class="col-auto"><a href="#!"><i class="fa fa-twitter text-twitter"></i></a></div>
+                            <div class="col-auto"><a href="#!"><i class="fa fa-dribbble text-dribbble"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="align-right mt-4">
+                    <h4>YOUR PROFILE STATISTICS CARDS</h4>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div>
+                                <p style="font-size: 22px; text-align:center;margin-right: 4px;">
+                                    Total Saved Speeches
+                                    <br>
+                                    <span>
+                                        26
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div>
+                                <p style="font-size: 22px; text-align:center;margin-right: 4px;">
+                                    Total Visits
+                                    <br>
+                                    <span>
+                                        37
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 mt-4">
+                        <div class="card" style="width: 100% ;margin: auto auto ">
+                            <div class="card-header" style="text-align: center">
+                                <h5>Update Your Profile</h5>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form action="" class="" style="margin-left: 1rem;margin-right: 1rem">
+                                        <div class="form-group row mt-1">
+                                            <label for="inputUserId" class="col-sm-3 col-form-label">Name </label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="inputUserId"
+                                                    value="Karandeep Singh" name="username" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-1">
+                                            <label for="inputUserId" class="col-sm-3 col-form-label">Username </label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="inputUserId"
+                                                    value="KD_Singh" name="username" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-1">
+                                            <label for="inputUserId" class="col-sm-3 col-form-label">Email </label>
+                                            <div class="col-sm-9">
+                                                <input type="email" class="form-control" id="inputUserId"
+                                                    value="karandeep@vitstudent.ac.in" name="username" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-1">
+                                            <label for="inputUserId" class="col-sm-3 col-form-label">Password </label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control" id="inputUserId"
+                                                    placeholder="Enter Password to update" name="username" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-3" style="text-align: center">
+                                            <div class="col-sm-12">
+                                                <button type="submit" class="btn more_bt"
+                                                    style="background-color: #212121; color: white;border-radius: 15px">
+                                                    Update
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <img src="https://i.imgur.com/WspZSwL.jpg" width="100%" height="100%" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+    <script>
+        var preloader = document.getElementById("loading");
+        function mylodFunction() {
+            preloader.style.display = 'none';
+        };
+    </script>
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
