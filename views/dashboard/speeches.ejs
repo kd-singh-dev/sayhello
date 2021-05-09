@@ -1,21 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
 
     <title>Dashboard</title>
-    <link rel="icon" href="https://i.imgur.com/IxnB3RV.png">
+    <link rel="icon" href="https://i.imgur.com/IxnB3RV.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
-
 </head>
 <style>
     .container-fluid {
@@ -27,7 +26,11 @@
         background: white;
         box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
         /* padding: 1rem 2rem 1rem 5rem; */
-        background: -webkit-gradient(linear, 0 0, 0 100%, from(#d9eaf3), color-stop(4%, #fff)) 0 1px;
+        background: -webkit-gradient(linear,
+                0 0,
+                0 100%,
+                from(#d9eaf3),
+                color-stop(4%, #fff)) 0 1px;
         /* background-size: 100% 3rem; */
         position: relative;
         /* line-height: 3rem; */
@@ -35,18 +38,21 @@
 
     .card button {
         border-radius: 50px;
+        margin-left: 2px;
+        height: max-content;
     }
 
     .card button:hover {
         background-color: #a258ed;
         border: none;
     }
+    .formWrapper{
+        display: flex;
+    }
 </style>
 
 <body>
-
-
-    <nav class="navbar navbar-expand-lg   navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <a class="navbar-brand vertical-center" href="#">
@@ -84,71 +90,58 @@
         <!-- Container wrapper -->
     </nav>
 
-
-
     <div class="container">
         <div class="row">
             <div class="align-right mt-4">
                 <h4>YOUR Saved Speeches</h4>
             </div>
+            <% var test = 0; %>
+            <% allSpeech.forEach(function(allSpeech){ %>
+            <% test++ %>
+
+            <!-- CARD FOR SPEECH BEGINS -->
             <div class="col-lg-4">
                 <div class="card mt-4">
                     <div class="card-body">
-                        <h5 class="card-title">My Intro</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content.</p>
-                        <button class="btn btn-primary">Edit This Speech</button>
-                        <button class="btn btn-primary">Convert to sign</button>
+                        <h5 class="card-title"><%= allSpeech.Speechname%></h5>
+                        <p class="card-text"><%= allSpeech.Speech%></p>
+                        <div class="formWrapper">
+                        <form action="/dashboard/signlanguage" method="GET">
+                            <button class="btn btn-primary"  type="submit" name="signlanguage" id="signlanguage" value="<%= allSpeech._id%>">
+                                Convert to sign
+                            </button>
+                        </form>
+
+
+                        <form action="/dashboard/editspeech" method="GET">
+                            <button class="btn btn-primary"  type="submit" name="editspeech" id="editspeech" value="<%= allSpeech._id%>">
+                                Edit This Speech
+                            </button>
+                        </form>
+
+
+
+
+                        <form action="/dashboard/delspeech" method="POST">
+                            <button class="btn btn-primary"  type="submit" name="delSpeech" id="delSpeech" value="<%= allSpeech._id%>">
+                                delete this speech
+                            </button>
+                        </form>
+                    </div>
                     </div>
                 </div>
-
             </div>
+            <!-- CARD FOR SPEECH ENDS -->
+            <% }); %>
+            <% if(test == 0) { %>
+                <h4 style="text-align: center;color: red">You Do not have any Speach</h4>
+                <h5 style="text-align: center;color: green">Save using Record tab</h5>
+              <% } %>
 
 
-            <div class="col-lg-4">
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Global Warming</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis
-                            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                            pariatur. Excepteur sint
-                            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                            laborum.</p>
-                        <button class="btn btn-primary">Edit This Speech</button>
-                        <button class="btn btn-primary">Convert to sign</button>
-
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="col-lg-4">
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Great Innovations</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat..</p>
-                        <button class="btn btn-primary">Edit This Speech</button>
-                        <button class="btn btn-primary">Convert to sign</button>
-
-                    </div>
-                </div>
-
-            </div>
 
         </div>
-
     </div>
-
-
-
 
     <!-- Optional JavaScript; choose one of the two! -->
 

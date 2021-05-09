@@ -19,12 +19,12 @@
 </head>
 <style>
     #loading {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background: #fff url('https://media.giphy.com/media/kUTME7ABmhYg5J3psM/source.gif') no-repeat center center;
-        z-index: 99999;
-    }
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: black url('https://i.imgur.com/c9rL8El.gif') no-repeat center center;
+    z-index: 99999;
+  }
 
     .container-fluid {
         width: 90%;
@@ -79,7 +79,7 @@
 
 <body onload="mylodFunction()">
 
-    <div id="loading"></div>
+    <!-- <div id="loading"></div> -->
 
 
     <nav class="navbar navbar-expand-lg   navbar-light bg-light">
@@ -127,27 +127,28 @@
                 <div class="mt-4">
                     <h3>Welcom back Karandeep Singh</h3>
                 </div>
-                <form action="">
+                <form action="/dashboard/speech" method="POST" onsubmit="return handlebeforesubmit()">
                     <div class="form-group">
-                        <input type="text" placeholder="Add speach title" name="title">
+                        <input type="text" placeholder="Add speech title" name="title">
                     </div>
+                    <input type="text" id="speech" name="speech" hidden>
 
+                    <button type="button" class="btn btn-primary" onclick="record()" id="recordBtn"
+                        style="margin-top:2rem;">Start
+                        Recording Your Speach</button>
+
+                    <button type="submit" class="btn btn-primary" id="saveBtn" style="display: none;margin-top:2rem;">
+                        Save Your speach once recorded.
+                    </button>
                 </form>
 
-                <div class="words" contenteditable>
+                <div class="words" id="words" contenteditable>
 
 
                 </div>
                 <div>
 
                 </div>
-                <button type="button" class="btn btn-primary" onclick="record()" id="recordBtn"
-                    style="margin-top:2rem;">Start
-                    Recording Your Speach</button>
-
-                <button type="submit" class="btn btn-primary" id="saveBtn" style="display: none;margin-top:2rem;">
-                    Save Your speach once recorded.
-                </button>
 
             </div>
 
@@ -164,6 +165,19 @@
 
 
     <script>
+        function handlebeforesubmit() {
+            // Do your stuff here
+            if(document.getElementById("words").innerText){
+            
+                document.getElementById("speech").value = document.getElementById("words").innerText;
+                return true; // submit the form
+
+            }else{
+                return false;
+
+                
+            }
+        }
         var preloader = document.getElementById("loading");
         function mylodFunction() {
             preloader.style.display = 'none';
@@ -215,11 +229,6 @@
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
-    -->
 </body>
 
 </html>

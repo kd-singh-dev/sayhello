@@ -22,13 +22,14 @@ mongoose
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
+  mongoose.set('useFindAndModify', false);
+
 // EJS
 // app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
-
 // Express session
 app.use(
   session({
@@ -55,7 +56,6 @@ app.use(function(req, res, next) {
 
 // Routes
 app.get('/', (req, res) => res.render('welcome'));
-
 app.use('/dashboard', require('./routes/dashboard/dashboardControler.js'));
 app.use('/users', require('./routes/users.js'));
 
