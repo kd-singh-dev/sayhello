@@ -108,7 +108,7 @@
                         <div class="formWrapper">
                         <form action="/dashboard/signlanguage" method="GET">
                             <button class="btn btn-primary"  type="submit" name="signlanguage" id="signlanguage" value="<%= allSpeech._id%>">
-                                Convert to sign
+                                Convert to Sign
                             </button>
                         </form>
 
@@ -124,7 +124,7 @@
 
                         <form action="/dashboard/delspeech" method="POST">
                             <button class="btn btn-primary"  type="submit" name="delSpeech" id="delSpeech" value="<%= allSpeech._id%>">
-                                delete this speech
+                                Delete This Speech
                             </button>
                         </form>
                     </div>
@@ -134,7 +134,7 @@
             <!-- CARD FOR SPEECH ENDS -->
             <% }); %>
             <% if(test == 0) { %>
-                <h4 style="text-align: center;color: red">You Do not have any Speach</h4>
+                <h4 style="text-align: center;color: red">You do not have any Speeches!</h4>
                 <h5 style="text-align: center;color: green">Save using Record tab</h5>
               <% } %>
 
