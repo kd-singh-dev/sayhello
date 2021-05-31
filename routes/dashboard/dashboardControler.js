@@ -3,9 +3,29 @@ const bodyParser = require("body-parser");
 const router = express.Router();
 const { ensureAuthenticated, forwardAuthenticated } = require('../../config/auth');
 var Speech = require("../../models/Speech");
-// Welcome Page
-// router.get('/', forwardAuthenticated, (req, res) => res.render('welcome'));
+var User = require("../../models/User");
+const multer = require("multer");
+const path = require("path");
+const fs = require("fs");
 
+
+//MULTER
+
+// Set The Storage Engine
+const storage = multer.diskStorage({
+  destination: "./public/images/",
+  filename: function (req, file, cb) {
+    cb(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+
+// Init Upload
+const upload = multer({
+  storage: storage,
+}).single("ProfilePic");
 // Dashboard
 router.get('/', ensureAuthenticated, (req, res) =>
   res.render('dashboard/dashboard', {
@@ -23,12 +43,10 @@ router.get('/speeches', ensureAuthenticated, (req, res) =>
   }));
 
 router.post('/speech',ensureAuthenticated,(req, res)=>{
-  // console.log("Data from post method");
-  // alert("post req");
-  var user=req.user.id;
+  
   var title = req.body.title;
   var speech=req.body.speech;
-  var newSpeech={UserID: user,Speechname: title,Speech:speech};
+  var newSpeech={UserID: req.user._id,Speechname: title,Speech:speech};
   Speech.create(newSpeech,function(err,newlyCreated){
     if(err){
       console.log(err);
@@ -90,10 +108,70 @@ router.post('/updatespeech', ensureAuthenticated, (req, res) =>{
 });
 }
 );
-router.get('/profile', ensureAuthenticated, (req, res) =>
-  res.render('dashboard/profile', {
-    user: req.user
-  })
+router.get('/profile', ensureAuthenticated, (req, res) =>{
+
+  Speech.count({ UserID: req.user._id }, function (err, Totalcon) {
+    if(err){
+      console.log(err);
+    }else{
+
+      User.findOneAndUpdate({ _id: req.user._id },{ $inc: { PageView: 1 } },{ new: true },function (err, response) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.render('dashboard/profile', {user: req.user,Totalcon: Totalcon});
+        }
+      });
+
+    }
+  });
+}
 );
+
+router.post("/updateprofilepic", ensureAuthenticated, (req, res) => {
+  upload(req, res, (err) => {
+    if (err) {
+      console.log(err);
+      request.redirect("/dashboard/profile");
+    } else {
+      var path = "/images/" + req.file.filename;
+      // Delete the Previous file
+      var previouspath = "./public" + req.user.ProfilePic;
+      //  console.log("previous path is : "+previouspath);
+      fs.unlink(previouspath, (err) => {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log("Prevoius file deleated");
+        }
+      });
+      User.findByIdAndUpdate(
+        req.user.id,
+        { ProfilePic: path},
+        function (err, docs) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.redirect("/dashboard/profile");
+          }
+        }
+      );
+    }
+  });
+});
+
+router.post("/updateprofile", ensureAuthenticated, (req, res) => {
+  var name = req.body.username;
+  User.findByIdAndUpdate(req.user._id,{name: name},function(err, docs) {
+    if(err){
+      console.log(err);
+    }else{
+      console.log(docs);
+      res.redirect("/dashboard/profile");
+    }
+  })
+});
+
+
 
 module.exports = router;

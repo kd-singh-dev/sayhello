@@ -88,13 +88,13 @@
                     </div>
                     <div class="card-block">
                         <div class="user-image">
-                            <img src="https://avatars.githubusercontent.com/u/50829119?s=400&u=da093d532ce980d145ccf497c850cd0a5d7f95c5&v=4"
+                            <img src="<%= user.ProfilePic %>"
                                 class="mt-4" alt="User-Profile-Image" width="200" height="200">
                         </div>
-                        <h6 class="f-w-600 m-t-25 m-b-10 mt-2">Karandeep Singh</h6>
-                        <p class="text-muted">User Name: KD_singh
+                        <h6 class="f-w-600 m-t-25 m-b-10 mt-2"><%= user.name %></h6>
+                        <p class="text-muted">Signed in on: <%= user.date.toDateString() %>
                             <br>
-                            Your Email: karandeep@vitstudent.ac.in
+                            Your Email: <%= user.email %>
                         </p>
                         <hr>
 
@@ -124,7 +124,7 @@
                                     Total Saved Speeches
                                     <br>
                                     <span>
-                                        26
+                                        <%=Totalcon %>
                                     </span>
                                 </p>
                             </div>
@@ -138,7 +138,7 @@
                                     Total Visits
                                     <br>
                                     <span>
-                                        37
+                                        <%= user.PageView %>
                                     </span>
                                 </p>
                             </div>
@@ -154,40 +154,51 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form action="" class="" style="margin-left: 1rem;margin-right: 1rem">
+                                    <form action="/dashboard/updateprofile" method="POST">
                                         <div class="form-group row mt-1">
                                             <label for="inputUserId" class="col-sm-3 col-form-label">Name </label>
                                             <div class="col-sm-9">
                                                 <input type="text" class="form-control" id="inputUserId"
-                                                    value="Karandeep Singh" name="username" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group row mt-1">
-                                            <label for="inputUserId" class="col-sm-3 col-form-label">Username </label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="inputUserId"
-                                                    value="KD_Singh" name="username" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group row mt-1">
-                                            <label for="inputUserId" class="col-sm-3 col-form-label">Email </label>
-                                            <div class="col-sm-9">
-                                                <input type="email" class="form-control" id="inputUserId"
-                                                    value="karandeep@vitstudent.ac.in" name="username" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group row mt-1">
-                                            <label for="inputUserId" class="col-sm-3 col-form-label">Password </label>
-                                            <div class="col-sm-9">
-                                                <input type="password" class="form-control" id="inputUserId"
-                                                    placeholder="Enter Password to update" name="username" />
+                                                    value="<%= user.name %>" name="username" />
                                             </div>
                                         </div>
                                         <div class="form-group row mt-3" style="text-align: center">
                                             <div class="col-sm-12">
                                                 <button type="submit" class="btn more_bt"
                                                     style="background-color: #212121; color: white;border-radius: 15px">
-                                                    Update
+                                                    Update Name
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form action="/dashboard/updateprofilepic" method="POST" enctype="multipart/form-data" style="margin-left: 1rem;margin-right: 1rem">
+                                       
+                                        <!-- <div class="form-group row mt-1">
+                                            <label for="inputUserId" class="col-sm-3 col-form-label">Email </label>
+                                            <div class="col-sm-9">
+                                                <input type="email" class="form-control" id="inputUserId"
+                                                    value="karandeep@vitstudent.ac.in" name="username" />
+                                            </div>
+                                        </div> -->
+                                        <!-- <div class="form-group row mt-1">
+                                            <label for="inputUserId" class="col-sm-3 col-form-label">Password </label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control" id="inputUserId"
+                                                    placeholder="Enter Password to update" name="username" />
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group row mt-1">
+                                            <label for="inputProfilePic" class="col-sm-3 col-form-label">Profile Pic </label>
+                                            <div class="col-sm-9">
+                                                <input type="file" class="form-control" id="inputProfilePic" accept=".png,.jpg"
+                                                    placeholder="Enter Password to update" name="ProfilePic" required/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mt-3" style="text-align: center">
+                                            <div class="col-sm-12">
+                                                <button type="submit" class="btn more_bt"
+                                                    style="background-color: #212121; color: white;border-radius: 15px">
+                                                    Update Profile pic
                                                 </button>
                                             </div>
                                         </div>

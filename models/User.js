@@ -16,6 +16,13 @@ const UserSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  ProfilePic: {
+    type: String,
+    required: false,
+  },
+  PageView:{
+    type: Number,
   }
 });
 

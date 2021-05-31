@@ -7,12 +7,13 @@ const session = require('express-session');
 
 const app = express();
 
+require('dotenv/config');
+
 // Passport Config
 require('./config/passport')(passport);
 
 // DB Config
-const db = require('./config/keys').mongoURI;
-
+const db = process.env.TOKEN;
 // Connect to MongoDB
 mongoose
   .connect(
@@ -27,6 +28,7 @@ mongoose
 // EJS
 // app.use(expressLayouts);
 app.set('view engine', 'ejs');
+app.use(express.static('public'))
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
