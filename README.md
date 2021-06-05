@@ -1,4 +1,16 @@
 # SayHello
+![issue](https://img.shields.io/github/issues/kdsinghcoder/sayhello)
+![GitHub language count](https://img.shields.io/github/languages/count/kdsinghcoder/sayhello)
+![version](https://img.shields.io/github/package-json/v/kdsinghcoder/sayhello)
+![express](https://img.shields.io/github/package-json/dependency-version/kdsinghcoder/sayhello/express)
+![mongoose](https://img.shields.io/github/package-json/dependency-version/kdsinghcoder/sayhello/mongoose)
+![multer](https://img.shields.io/github/package-json/dependency-version/kdsinghcoder/sayhello/multer)
+![passport](https://img.shields.io/github/package-json/dependency-version/kdsinghcoder/sayhello/passport)
+
+Say Hello is essentially a speech to sign language converter which takes a speech input from the user and converts it to a text form with the help of a JavaScript API followed by which, this text is used as an input to finally convert this speech into sign language.
+
+
+![image](https://user-images.githubusercontent.com/50829119/120904541-69469b00-c66a-11eb-861b-1816362818cc.png)
 
 ### Hosted on
  <a href="https://sa-yhello.herokuapp.com/">
