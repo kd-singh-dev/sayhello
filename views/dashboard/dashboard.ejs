@@ -19,12 +19,12 @@
 </head>
 <style>
     #loading {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: black url('https://i.imgur.com/c9rL8El.gif') no-repeat center center;
-    z-index: 99999;
-  }
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: black url('https://i.imgur.com/c9rL8El.gif') no-repeat center center;
+        z-index: 99999;
+    }
 
     .container-fluid {
         width: 90%;
@@ -75,6 +75,41 @@
         border: 1px solid;
         border-color: transparent #efe4e4;
     }
+
+   
+
+    .btn-primary{
+        background-image: linear-gradient(to right, #DA22FF 0%, #9733EE 51%, #DA22FF 100%);
+        border: none;
+    }
+
+    .btn-primary {
+        margin: 10px;
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+    }
+
+    .btn-primary:hover {
+        background-position: right center;
+        /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+    .navbar{
+        background-image: linear-gradient(to right, #DA22FF 0%, #DA22FF 43%, #9733EE 100%);
+        color: white;
+    }
+    .navbar a{
+        color: white;
+    }
+    
 </style>
 
 <body onload="mylodFunction()">
@@ -82,7 +117,7 @@
     <!-- <div id="loading"></div> -->
 
 
-    <nav class="navbar navbar-expand-lg   navbar-light bg-light">
+    <nav class="navbar navbar-expand">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <a class="navbar-brand vertical-center" href="#">
@@ -125,7 +160,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="mt-4">
-                    <h3>Welcome back Karandeep Singh!</h3>
+                    <h3>Welcome back <%= user.name%>!</h3>
                 </div>
                 <form action="/dashboard/speech" method="POST" onsubmit="return handlebeforesubmit()">
                     <div class="form-group">
@@ -154,7 +189,7 @@
 
             <div class="col-lg-6">
                 <div>
-                    <img src="https://i.imgur.com/vZboLOl.jpg" width="100%" height="100%">
+                    <img src="https://i.imgur.com/I7L8Tdz.png" width="100%" height="100%">
                 </div>
 
             </div>
@@ -167,15 +202,15 @@
     <script>
         function handlebeforesubmit() {
             // Do your stuff here
-            if(document.getElementById("words").innerText){
-            
+            if (document.getElementById("words").innerText) {
+
                 document.getElementById("speech").value = document.getElementById("words").innerText;
                 return true; // submit the form
 
-            }else{
+            } else {
                 return false;
 
-                
+
             }
         }
         var preloader = document.getElementById("loading");

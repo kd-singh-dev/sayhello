@@ -35,12 +35,40 @@
         -moz-border-radius: 10px;
         border-radius: 10px;
     }
+    .btn-primary{
+        background-image: linear-gradient(to right, #DA22FF 0%, #9733EE 51%, #DA22FF 100%);
+        border: none;
+    }
+
+    .btn-primary {
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+    }
+
+    .btn-primary:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+    }
+    .navbar{
+        background-image: linear-gradient(to right, #DA22FF 0%, #DA22FF 43%, #9733EE 100%);
+        color: white;
+    }
+    .navbar a{
+        color: white;
+    }
 </style>
 
 <body>
 
 
-    <nav class="navbar navbar-expand-lg   navbar-light bg-light">
+    <nav class="navbar navbar-expand">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <a class="navbar-brand vertical-center" href="#">
@@ -154,7 +182,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form action="/dashboard/updateprofile" method="POST">
+                                    <form action="/dashboard/updateprofile" method="POST" style="margin-left: 1rem;margin-right: 1rem">
                                         <div class="form-group row mt-1">
                                             <label for="inputUserId" class="col-sm-3 col-form-label">Name </label>
                                             <div class="col-sm-9">
@@ -164,8 +192,7 @@
                                         </div>
                                         <div class="form-group row mt-3" style="text-align: center">
                                             <div class="col-sm-12">
-                                                <button type="submit" class="btn more_bt"
-                                                    style="background-color: #212121; color: white;border-radius: 15px">
+                                                <button type="submit" class="btn more_bt btn-primary">
                                                     Update Name
                                                 </button>
                                             </div>
@@ -196,8 +223,7 @@
                                         </div>
                                         <div class="form-group row mt-3" style="text-align: center">
                                             <div class="col-sm-12">
-                                                <button type="submit" class="btn more_bt"
-                                                    style="background-color: #212121; color: white;border-radius: 15px">
+                                                <button type="submit" class="btn more_bt  btn-primary">
                                                     Update Profile pic
                                                 </button>
                                             </div>
@@ -206,7 +232,7 @@
                                 </div>
 
                                 <div class="col-lg-6">
-                                    <img src="https://i.imgur.com/WspZSwL.jpg" width="100%" height="100%" alt="">
+                                    <img src="https://i.imgur.com/KDQV2CN.png" width="100%" height="100%" alt="">
                                 </div>
 
                             </div>

@@ -49,10 +49,39 @@
     .formWrapper{
         display: flex;
     }
+    .btn-primary{
+        background-image: linear-gradient(to right, #DA22FF 0%, #9733EE 51%, #DA22FF 100%);
+        border: none;
+    }
+
+    .btn-primary {
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+    }
+
+    .btn-primary:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+    }
+    .navbar{
+        background-image: linear-gradient(to right, #DA22FF 0%, #DA22FF 43%, #9733EE 100%);
+        color: white;
+    }
+    .navbar a{
+        color: white;
+    }
+    
 </style>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <a class="navbar-brand vertical-center" href="#">
