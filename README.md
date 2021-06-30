@@ -39,6 +39,20 @@ Running the project on local system is **strongly recommended**, even if you are
 ![image](https://user-images.githubusercontent.com/50829119/123988201-70509700-d9e5-11eb-9def-7f254d6a2a34.png)
 
 ## Depencencies 
+```
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.7.5",
+    "multer": "^1.4.2",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+```
 
 **Bcrypt.js**
 Bcrypt,js is one the most widely used encrypting/decrypting library used to handle sensitive data such as passwords in a software/website. This uses the concept of hashing and then decrypting the generated hash function using a salt(key). Thus, this helps prevent privacy and reduce damage to someone's resources who uses the same password for different websites.
@@ -67,6 +81,8 @@ efficiency. In this case Multer is used to handle profile images and also to ens
 **Passport**
 Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped into any Express-based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more.
 
+## Page View
+![image](https://user-images.githubusercontent.com/50829119/124012430-c7169a80-d9fe-11eb-8558-8aed2f04577d.png)
 
 
 
